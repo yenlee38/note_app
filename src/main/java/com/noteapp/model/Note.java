@@ -23,6 +23,14 @@ public class Note {
     public Note() {
     }
 
+    public Note(int id, String name, String content, int user_id, int category_id) {
+        this.id = id;
+        this.name = name;
+        this.content = content;
+        this.user_id = user_id;
+        this.category_id = category_id;
+    }
+
     public Note(String name, String content, int user_id, int category_id) {
         this.name = name;
         this.content = content;
@@ -45,6 +53,8 @@ public class Note {
     public Date getUpdated_at() {
         return updated_at;
     }
+
+
 
     public Note(int id, String name, String content, int user_id, int category_id, boolean is_hidden) {
         this.id = id;

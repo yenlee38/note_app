@@ -24,7 +24,7 @@ public class CategoryController {
     @RequestMapping(value = "/{id}/category", method = RequestMethod.GET)
     public String showPageCategory(Model model, @PathVariable("id") int id) {
         model.addAttribute("userId", id);
-        model.addAttribute("categorys", categoryService.getAll());
+        model.addAttribute("categorys", categoryService.getAll(id));
         return "category";
     }
 
@@ -36,27 +36,28 @@ public class CategoryController {
 
     @RequestMapping(value = "/{id}/add-category", method = RequestMethod.POST)
     public String addCategory(@PathVariable("id") int id, Model model, @Valid String name) {
-        categoryService.addCategory(name);
-        return "redirect:/category";
+        categoryService.addCategory(id, name);
+        return "redirect:/{id}/category";
     }
 
     @RequestMapping(value = "/{id}/delete-category", method = RequestMethod.GET)
     public String deleteCategory(@RequestParam int id) {
         categoryService.deleteCategoryById(id);
-        return "redirect:/category";
+        return "redirect:/{id}/category";
     }
 
     @RequestMapping(value = "/{id}/update-category", method = RequestMethod.GET)
-    public String getUpdateCategory(Model model, @RequestParam int id) {
+    public String getUpdateCategory(Model model,@PathVariable("id") int userId,  @RequestParam int id) {
         model.addAttribute("id", id);
+        model.addAttribute("userId", userId);
         model.addAttribute("name", categoryService.getById(id).getName());
         return "update-category";
     }
 
     @RequestMapping(value = "/{id}/update-category", method = RequestMethod.POST)
-    public String updateCategory(@Valid int id, @Valid String name, Model model) {
+    public String updateCategory(@PathVariable("id") int userId, @Valid int id, @Valid String name, Model model) {
        categoryService.updateCategory(id, name);
-        return "redirect:/${id}/category";
+        return "redirect:/{id}/category";
     }
 
     @RequestMapping(value = "/{id}/search-category", method = RequestMethod.POST)

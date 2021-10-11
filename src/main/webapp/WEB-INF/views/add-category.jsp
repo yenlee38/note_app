@@ -1,4 +1,6 @@
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -8,13 +10,15 @@
 </head>
 <body>
 <div class = "container">
-    <form action="/add-category" method="post" class="center-block">
+    <form action="/${userId}/add-category" method="post" class="center-block">
         <div class="mb-3">
             <span>Add Category</span>
         </div>
         <div class="mb-3">
             <label for="name" class="form-label">Name category</label>
+            <input type="hidden" class="form-control" name = "userId" value="${userId}" aria-describedby="emailHelp">
             <input type="text" class="form-control" name = "name" id="name" aria-describedby="emailHelp">
+
         </div>
         <button type="submit" class="btn btn-primary">Add</button>
     </form>

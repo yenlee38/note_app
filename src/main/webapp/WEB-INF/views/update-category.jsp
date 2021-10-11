@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class = "container">
-    <form action="/update-category" method="post" class="center-block">
+    <form action="/${userId}/update-category" method="post" class="center-block">
         <div class="mb-3">
             <span>Update Category</span>
         </div>

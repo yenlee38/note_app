@@ -23,6 +23,10 @@ public class CategoryService {
         return  categoryRepository.findAllByIsHisdden();
     }
 
+    public List<Category> getAll(int id) {
+        return  categoryRepository.findAllByUserIsHisdden(id);
+    }
+
     public Category getById(int id) {
         Optional<Category> category = categoryRepository.findById(id);
         return category.get();
@@ -39,9 +43,10 @@ public class CategoryService {
         categoryRepository.save(category.get());
     }
 
-    public void addCategory(String name) {
+    public void addCategory(int id, String name) {
         Category category = new Category();
         category.setName(name);
+        category.setUser_id(id);
         category.setCreated_at(new Date());
         category.setUpdated_at(new Date());
         categoryRepository.save(category);

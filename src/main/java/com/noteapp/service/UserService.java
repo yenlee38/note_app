@@ -1,5 +1,6 @@
 package com.noteapp.service;
 
+import com.noteapp.model.Note;
 import com.noteapp.model.User;
 import com.noteapp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +22,9 @@ public class UserService {
         User user = new User(username, password, new Date(), new Date());
         userRepository.save(user);
         return userRepository.findUserByUsernameAndPassword(username, password);
+    }
+
+    public User getById(int id) {
+        return userRepository.findUserById(id);
     }
 }
