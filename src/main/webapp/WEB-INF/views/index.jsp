@@ -13,15 +13,16 @@
             <form class="px-4 py-3" method="post" action="/login">
                 <div class="mb-3">
                     <label for="exampleDropdownFormEmail1" class="form-label">Username</label>
-                    <input type="text" name="username"  class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+                    <input type="text" name="username"  id = "txtUsername" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleDropdownFormPassword1" class="form-label">Password</label>
-                    <input type="password" name="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+                    <label for="exampleDropdownFormPassword1"  class="form-label">Password</label>
+                    <input type="password" name="password" id = "txtPass" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
                 </div>
                 <div class="mb-3">
+                    <label style="color: #ff0000">${message}</label>
                 </div>
-                <button type="submit" class="btn btn-primary">Sign in</button>
+                <button type="submit" id = "btnSignin" class="btn btn-primary">Sign in</button>
                 <a href="/register" class="btn btn-success">
                     Sign Up
                 </a>
