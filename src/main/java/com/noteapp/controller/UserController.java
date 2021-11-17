@@ -38,6 +38,7 @@ public class UserController {
         if (user!= null) {
             return "redirect:/" + user.getId() + "/home";
         } else {
+            modelMap.addAttribute("message", "Username or password not matching !!");
             return "index";
         }
     }
